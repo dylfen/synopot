@@ -1,0 +1,15 @@
+---
+networks:
+  honeypot-stack:
+
+services:
+  cowrie:
+    image: cowrie/cowrie:latest
+    restart: always
+    volumes:
+      - /volume1/DockerVolume/honeypot-stack/cowrie.cfg:/etc/cowrie.cfg
+      - /volume1/DockerVolume/honeypot-stack/cowrie-log:/var/log/cowrie
+    expose:
+      - 10022
+    networks:
+      - honeypot-stack
